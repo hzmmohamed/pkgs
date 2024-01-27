@@ -2,7 +2,7 @@
   description = "Description for the project";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/da5adce0ffaff10f6d0fee72a02a5ed9d01b52fc";
     flake-parts.url = "github:hercules-ci/flake-parts";
     devshell.url = "github:numtide/devshell";
     treefmt-nix.url = "github:numtide/treefmt-nix";
@@ -36,16 +36,13 @@
           };
         };
         devshells = {
-          default = {
-            devshell = {
-              packages = [
-                pkgs.hello
-              ];
-            };
-          };
+          utils = pkgs.callPackage ./utils/devshell.nix {};
         };
         # Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
-        packages.frictionless = pkgs.python310Packages.callPackage ./frictionless/default.nix {};
+        packages = {
+          frictionless = pkgs.python310Packages.callPackage ./frictionless/default.nix {};
+          utils = pkgs.python310Packages.callPackage ./utils/default.nix {};
+        };
       };
       flake = {
         # The usual flake attributes can be defined here, including system-
