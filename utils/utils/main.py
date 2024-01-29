@@ -4,12 +4,7 @@ from shapely import wkt
 import polars as pl
 import sqlite3
 import math
-
-import os
-
-os.environ["USE_PYGEOS"] = "0"
-import geopandas as gpd  # noqa: E402
-
+import geopandas as gpd
 
 def join_one_to_many_then_sample_efficient_v2(
     df1,
