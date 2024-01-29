@@ -14,7 +14,7 @@ python310Packages.buildPythonPackage {
   ];
 
   # has no tests
-  doCheck = false;
+  doCheck = true;
 
   pythonImportsCheck = [
     "utils"
