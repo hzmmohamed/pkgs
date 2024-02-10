@@ -54,7 +54,7 @@
           frictionless =
             pkgs.python311Packages.callPackage ./frictionless/default.nix {
             };
-          utils = pkgs.python310Packages.callPackage ./utils/default.nix {};
+          utils = pkgs.python311Packages.callPackage ./utils/default.nix {};
         };
       };
       flake = {

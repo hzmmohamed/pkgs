@@ -1,11 +1,16 @@
 {
   lib,
-  python310Packages,
+  buildPythonPackage,
+  duckdb,
+  polars,
+  geopandas,
+  pandas,
+  shapely,
 }:
-python310Packages.buildPythonPackage {
+buildPythonPackage {
   name = "utils";
   src = ./.;
-  buildInputs = with python310Packages; [
+  buildInputs = [
     duckdb
     polars
     geopandas

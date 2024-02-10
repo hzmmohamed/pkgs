@@ -35,7 +35,7 @@
   hatchling,
   hatch-vcs,
   hatch-fancy-pypi-readme,
-  pyrsistent
+  pyrsistent,
 }: let
   marko = buildPythonPackage rec {
     pname = "marko";
@@ -88,7 +88,6 @@
       hatch-fancy-pypi-readme
     ];
     propagatedBuildInputs = [
-      
       attrs
       pyrsistent
     ];
