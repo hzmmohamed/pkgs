@@ -20,7 +20,7 @@ buildPythonPackage {
     wheel
   ];
 
-  buildInputs = [
+  propagatedBuildInputs = [
     duckdb
     polars
     geopandas
