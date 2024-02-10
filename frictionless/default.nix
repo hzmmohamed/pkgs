@@ -16,7 +16,6 @@
   requests,
   humanize,
   tabulate,
-  jsonschema,
   simpleeval,
   stringcase,
   typer,
@@ -34,15 +33,18 @@
   setuptools-scm,
   wheel,
   hatchling,
+  hatch-vcs,
+  hatch-fancy-pypi-readme,
+  pyrsistent
 }: let
   marko = buildPythonPackage rec {
     pname = "marko";
-    version = "2.0.1";
+    version = "2.0.2";
     src = fetchPypi {
       inherit pname version;
-      sha256 = "sha256-tZ7MZMIYW/XVmIosKpr8i29y2QR4ltEg1PMuFLtsaW0=";
+      sha256 = "sha256-UC322CcTnqcmXYGfT+NmRYn0d0mX7/dY3Di+pPUjUOY";
     };
-    pyproject = true;
+    format = "pyproject";
     nativeBuildInputs = [
       pdm
       pdm-backend
@@ -61,36 +63,46 @@
       inherit pname version;
       sha256 = "sha256-1IAuPEgEv4XyJnoBAvytNcYeajfJDZ4aFnQzHzWpCn8=";
     };
-    pyproject = true;
+    format = "pyproject";
+    doCheck = false;
     nativeBuildInputs = [
       setuptools
       setuptools-scm
       wheel
     ];
   };
-  hera = buildPythonPackage rec {
-    pname = "hera";
-    version = "5.13.1";
+
+  jsonschema = buildPythonPackage rec {
+    pname = "jsonschema";
+    # jsonschema is already packaged in nixpkgs. However, frictionless's pyproject.toml requires jsonschema < v4.17.3. However this version from an old nixpkgs commit is built against a different python version a few PATCH versions behind, which makes it incompatible with the current Python version.
+    version = "4.17.3";
     src = fetchPypi {
       inherit pname version;
-      sha256 = "sha256-1IAuPEgEv4XyJnoBAvytNcYeajfJDZ4aFnQzHzWpCn8=";
+      sha256 = "sha256-D4ZEN6uLYHa6ZwdFPvj5imoNUSqA6T+KvbZ29zfstg0=";
     };
-    pyproject = true;
+    format = "pyproject";
+    doCheck = false;
     nativeBuildInputs = [
-      setuptools
-      setuptools-scm
-      wheel
+      hatchling
+      hatch-vcs
+      hatch-fancy-pypi-readme
+    ];
+    propagatedBuildInputs = [
+      
+      attrs
+      pyrsistent
     ];
   };
 in
   buildPythonPackage rec {
     pname = "frictionless";
-    version = "5.16.0";
+    version = "5.16.1";
+    doCheck = false;
     src = fetchPypi {
       inherit pname version;
-      sha256 = "sha256-6SIo8lleB6biJyAtgfZu+IsMdgPqnpUZlCCr2//a2QY=";
+      sha256 = "sha256-q0v+VfXYMcFaFnYGhQNv3YXJAm0tfGM7ZnKxsE+MSMY";
     };
-    pyproject = true;
+    format = "pyproject";
     nativeBuildInputs = [
       hatchling
     ];

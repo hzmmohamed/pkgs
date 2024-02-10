@@ -1,0 +1,1 @@
+- [ ] Build shell completions with the frictionless binary like in other nix packages
