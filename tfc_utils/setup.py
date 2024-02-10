@@ -2,7 +2,7 @@
 
 from setuptools import setup, find_packages
 
-setup(name='utils',
+setup(name='tfc_utils',
       # Modules to import from other scripts:
       packages=find_packages(),
      )

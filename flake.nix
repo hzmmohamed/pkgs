@@ -47,14 +47,14 @@
           };
         };
         devshells = {
-          utils = import ./utils/devshell.nix {pkgs = pkgs;};
+          tfc_utils = import ./tfc_utils/devshell.nix {pkgs = pkgs;};
         };
         # Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
         packages = {
           frictionless =
             pkgs.python311Packages.callPackage ./frictionless/default.nix {
             };
-          utils = pkgs.python311Packages.callPackage ./utils/default.nix {};
+          tfc_utils = pkgs.python311Packages.callPackage ./tfc_utils/default.nix {};
         };
       };
       flake = {

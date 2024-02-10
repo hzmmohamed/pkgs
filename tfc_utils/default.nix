@@ -6,10 +6,20 @@
   geopandas,
   pandas,
   shapely,
+  setuptools,
+  setuptools-scm,
+  wheel,
 }:
 buildPythonPackage {
-  name = "utils";
+  name = "tfc_utils";
   src = ./.;
+
+  nativeBuildInputs = [
+    setuptools
+    setuptools-scm
+    wheel
+  ];
+
   buildInputs = [
     duckdb
     polars
@@ -22,13 +32,6 @@ buildPythonPackage {
   doCheck = true;
 
   pythonImportsCheck = [
-    "utils"
+    "tfc_utils"
   ];
-  # propagatedBuildInputs = [
-  #   attrs
-  #   py
-  #   setuptools
-  #   six
-  #   pluggy
-  # ];
 }
