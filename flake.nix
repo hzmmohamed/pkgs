@@ -52,7 +52,7 @@
         # Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
         packages = {
           frictionless =
-            pkgs.python311Packages.callPackage ./frictionless/default.nix {
+            pkgs.python311Packages.callPackage ./packages/frictionless/default.nix {
             };
           tfc_utils = pkgs.python311Packages.callPackage ./tfc_utils/default.nix {};
         };
