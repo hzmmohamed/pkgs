@@ -5,6 +5,6 @@ pkgs.stdenv.mkDerivation {
   src = ./.;
   installPhase = ''
     mkdir -p $out
-    install $out/data/ ./eg_admin_boundaries.gpkg $out
+    install -v -D -t $out/data/ ./eg_admin_boundaries.gpkg
   '';
 }
