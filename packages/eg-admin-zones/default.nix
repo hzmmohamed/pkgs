@@ -4,6 +4,7 @@ pkgs.stdenv.mkDerivation {
   pname = "eg-admin-zones";
   src = ./.;
   installPhase = ''
-    cp ./eg_admin_boundaries.gpkg $out
+    mkdir -p $out
+    install $out/data/ ./eg_admin_boundaries.gpkg $out
   '';
 }
