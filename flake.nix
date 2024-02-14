@@ -55,6 +55,7 @@
             pkgs.python311Packages.callPackage ./packages/frictionless/default.nix {
             };
           tfc_utils = pkgs.python311Packages.callPackage ./tfc_utils/default.nix {};
+          eg-admin-zones = pkgs.callPackage ./packages/eg-admin-zones {};
         };
       };
       flake = {
