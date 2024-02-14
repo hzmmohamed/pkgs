@@ -106,7 +106,7 @@ def read_gpkg_into_gdf_using_duckdb(path, layer_name, geometry_col_name, crs):
     return gpd.GeoDataFrame(
         duckdb.sql(
             # TODO: There seems to be a bug in duckdb's conversion to WKT that messes up multipolygons. The resulting WKT was not parseable by shapely. The WKT had exactly the following erroneous character order between two polygons within the multipolygon --> )(, <--
-            f"select *, st_astext(st_geomfromWKB({geometry_col_name})) as geom_wkt from st_read('{path}', layer='{layer_name}')"
+            f"select *, st_astext({geometry_col_name}) as geom_wkt from st_read('{path}', layer='{layer_name}')"
         )
         .df()
         .assign(**{geometry_col_name: lambda df: df["geom_wkt"].apply(wkt_loads)}),
