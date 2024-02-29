@@ -56,6 +56,7 @@
             };
           tfc_utils = pkgs.python311Packages.callPackage ./tfc_utils/default.nix {};
           eg-admin-zones = pkgs.callPackage ./packages/eg-admin-zones {};
+          hera = pkgs.callPackage ./packages/hera {};
         };
       };
       flake = {
