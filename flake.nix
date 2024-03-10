@@ -57,6 +57,7 @@
           tfc_utils = pkgs.python311Packages.callPackage ./tfc_utils/default.nix {};
           eg-admin-zones = pkgs.callPackage ./packages/eg-admin-zones {};
           eg-buildings-census = pkgs.callPackage ./packages/eg-buildings-census {};
+          eg-establishments-census = pkgs.callPackage ./packages/eg-establishments-census {};
           hera = pkgs.callPackage ./packages/hera {};
         };
       };
