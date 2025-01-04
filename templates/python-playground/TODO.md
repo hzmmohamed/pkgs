@@ -1,0 +1,23 @@
+Requirements:
+- jupyenv
+- datascience cookie cutter format
+- command to export notebook into html or pdf
+- Data exploration tools:
+	- Quick plotting and exploration tools without code
+		- Plotly explore I believe
+		- geoviews tool as well
+	- color pallette packages and good color palette default
+	- Set up Gill Sans as the default matplotlib font
+	- environment variables setup with .env.local for when it's needed
+- Effective and simple to use solution for caching specifically .read_file funciton calls which can be long for large files. That's deliberate caching on a function level with a decorator or something. Moreover, it would be nice to have cell caching if input variables have not changed. Basically, I try to make my cells pure functions. It's not that straightforward, but let's research this.
+	- Look into xetcache
+	
+- Linting rules for notebook:
+	- No unused imports
+	- no unused variables
+	- Type stuff for python
+	- Variable scope
+	- Variable is used before initialization
+	- Better defaults for VSCode notebook UI settings
+- Auto-formatting of notebook on save
+	- remove unused imports
